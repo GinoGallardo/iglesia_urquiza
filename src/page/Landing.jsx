@@ -6,6 +6,7 @@ import Home from '../components/Inicio/Home'
 import Nosotros from '../components/Nosotros/Nosotros'
 import Oracion from '../components/Oramos/Oracion'
 import Visitanos from '../components/Visitanos/Visitanos'
+import ButtonWhatsApp from '../components/WhatsApp/ButtonWhatsApp'
 
 function Landing() {
   return (
@@ -16,6 +17,7 @@ function Landing() {
       <Visitanos />
       <Actividades />
       <Oracion />
+      <ButtonWhatsApp />
       <Footer />
     </>
   )

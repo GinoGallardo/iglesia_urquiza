@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
 
 const link = [
-  { name: "Inicio", href: "#" },
-  { name: "Nosotros", href: "#" },
-  { name: "Visitanos", href: "#" },
-  { name: "Actividades", href: "#" }
+  { name: "Inicio", href: "#inicio" },
+  { name: "Nosotros", href: "#nosotros" },
+  { name: "Visitanos", href: "#visitanos" },
+  { name: "Actividades", href: "#actividades" },
+  { name: "Oramos", href: "#oracion" }
 ]
 
 function Links() {

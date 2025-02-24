@@ -4,6 +4,7 @@ import { IoIosPlayCircle } from "react-icons/io";
 function Home() {
   return (
     <section
+      id="inicio"
       className="relative h-72 sm:h-80 md:h-96 lg:h-screen bg-cover bg-center"
       style={{ backgroundImage: `url(${fotoPortada})` }}
     >

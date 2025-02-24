@@ -37,7 +37,7 @@ const slides = [
 
 const Actividades = () => {
   return (
-    <section className="flex flex-col p-2 md:p-6 md:my-10">
+    <section id="actividades" className="flex flex-col p-2 md:p-6 md:my-10 lg:pt-28 lg:mt-16">
       <div className="flex flex-col items-center justify-center gap-4">
         <h2 className="text-center text-red-600 font-bold font-serif sm:text-2xl md:text-3xl lg:text-4xl">
           Actividades de la Iglesia
