@@ -39,7 +39,7 @@ const Actividades = () => {
   return (
     <section id="actividades" className="flex flex-col p-2 md:p-6 md:my-10 lg:pt-28 lg:mt-16">
       <div className="flex flex-col items-center justify-center gap-4">
-        <h2 className="text-center text-red-600 font-bold font-serif sm:text-2xl md:text-3xl lg:text-4xl">
+        <h2 className="text-center text-red-600 font-bold font-serif text-2xl md:text-3xl lg:text-4xl">
           Actividades de la Iglesia
         </h2>
         <span className="text-center text-2xl font-serif font-extrabold md:text-wrap md:text-4xl lg:text-6xl">

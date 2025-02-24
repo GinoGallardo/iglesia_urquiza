@@ -15,7 +15,7 @@ function Links() {
         <div key={`${item.name}-${index}`} className="flex">
           <a
             href={item.href}
-            className={`text-xl text-white font-semibold hover:underline `}
+            className={`text-xl md:text-white font-semibold hover:underline `}
           >
             {item.name}
           </a>

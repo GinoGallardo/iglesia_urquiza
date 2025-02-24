@@ -9,7 +9,7 @@ export default function Oracion() {
       style={{ backgroundImage: `url(${oramosPorVos})` }}
     >
       <div className="absolute inset-0 bg-black/90 flex flex-col items-center justify-center text-center px-4 gap-6">
-      <h4 className='text-center text-red-600 font-bold font-serif sm:text-2xl md:text-3xl lg:text-4xl'>Oramos por Vos</h4>
+      <h4 className='text-center text-red-600 font-bold font-serif text-2xl md:text-3xl lg:text-4xl'>Oramos por Vos</h4>
       <span className='text-center text-white text-2xl font-serif font-extrabold md:text-wrap md:text-4xl lg:text-6xl'>Mateo 18:20</span>
       <h2 className='text-center text-white text-2xl font-serif font-extrabold md:text-wrap md:text-4xl lg:text-6xl'>Necesitas ayuda o querés que oremos por vos?</h2>
       <a 

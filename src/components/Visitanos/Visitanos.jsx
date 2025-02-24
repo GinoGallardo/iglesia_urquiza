@@ -6,7 +6,7 @@ function Visitanos() {
   return (
     <section id="visitanos" className="relative flex flex-col bg-red-600 gap-4 p-6 md:gap-y-10 md:py-10 lg:pt-28 lg:mt-16">
       <div className="flex flex-col items-center justify-center gap-y-6">
-        <span className="text-center text-white font-bold font-serif sm:text-2xl md:text-3xl lg:text-4xl">
+        <span className="text-center text-white font-bold font-serif text-2xl md:text-3xl lg:text-4xl">
           Visitanos
         </span>
         <h3 className="text-center text-2xl font-serif font-extrabold md:text-4xl lg:text-6xl">
