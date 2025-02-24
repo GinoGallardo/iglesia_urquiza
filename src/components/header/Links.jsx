@@ -8,7 +8,26 @@ const link = [
   { name: "Oramos", href: "#oracion" }
 ]
 
-function Links() {
+function Links({mobile = false, onClick}) {
+  const handleClick = (e, sectionId) => {
+    e.preventDefaul()
+    const section = document.getElementById(sectionId);
+
+    if(section) {
+      const offset = .1;
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY - offset;
+
+      window.scrollTo({
+        top: sectionTop,
+        behavior: "smooth"
+      });
+
+      if (mobile && onClick) {
+        onClick()
+      }
+    }
+  }
+
   return (
     <>
       {link.map((item, index) => (
@@ -16,6 +35,7 @@ function Links() {
           <a
             href={item.href}
             className={`text-xl md:text-white font-semibold hover:underline `}
+            onClick={(e) => handleClick(e, item.href)}
           >
             {item.name}
           </a>
@@ -27,6 +47,7 @@ function Links() {
 
 Links.propTypes = {
   mobile: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 
 export default Links;
