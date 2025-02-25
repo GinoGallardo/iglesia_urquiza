@@ -13,7 +13,7 @@ export default function Oracion() {
       <span className='text-center text-white text-2xl font-serif font-extrabold md:text-wrap md:text-4xl lg:text-6xl'>Mateo 18:20</span>
       <h2 className='text-center text-white text-2xl font-serif font-extrabold md:text-wrap md:text-4xl lg:text-6xl'>Necesitas ayuda o querés que oremos por vos?</h2>
       <a 
-        href="https://api.whatsapp.com/send?phone=91137593711"
+        href="https://api.whatsapp.com/send?phone=91121697373"
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center justify-center md:gap-4 bg-[#ac0505] py-2 px-4 rounded-md cursor-pointer hover:bg-red-400 text-2xl font-semibold"
