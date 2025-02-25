@@ -7,7 +7,7 @@ const SlideCard = ({ slide }) => {
       style={{ backgroundImage: `url(${slide.img})` }}
       className="w-full h-full rounded-xl bg-center bg-cover duration-500"
     >
-      <div className="bg-red-600/50 p-3 md:p-4 rounded-xl flex flex-col items-center text-center">
+      <div className="bg-[#ac0505]/50 p-3 md:p-4 rounded-xl flex flex-col items-center text-center">
         <h2 className="rounded-full text-lg md:text-2xl p-2 text-white font-semibold">
           {slide.name}
         </h2>

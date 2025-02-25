@@ -3,7 +3,7 @@ import IceUrquiza from "/assets/ICE-urquiza.png"
 function Nosotros() {
   return (
     <section id="nosotros" className="flex flex-col p-2 gap-y-8 md:p-6 md:my-10 lg:pt-28 lg:mt-16">
-      <h2 className="subtitulo text-center text-red-600 font-bold font-serif text-2xl md:text-3xl lg:text-4xl">Sobre nosotros</h2>
+      <h2 className="subtitulo text-center text-[#ac0505] font-bold font-serif text-2xl md:text-3xl lg:text-4xl">Sobre nosotros</h2>
       <div className="grid grid-cols-4 gap-4 p-6 mx-auto md:grid-cols-4 lg:w-5xl lg:grid-cols-6">
         <div className="col-span-4 md:col-span-2">
           <img src={IceUrquiza} alt="Frente de la Iglesia" />

@@ -5,7 +5,7 @@ function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="flex flex-col gap-4 items-center justify-center bg-red-600 text-white p-2 lg:flex-row">
+    <footer className="flex flex-col gap-4 items-center justify-center bg-[#ac0505] text-white p-2 lg:flex-row">
       <LogoIglesia />
       <Redes />
       <div className="flex gap-1 lg:ml-4">

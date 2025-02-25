@@ -29,7 +29,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className={`sticky top-0 z-[100] text-white bg-red-600 transition-opacity duration-300 ${isScrolled ? 'opacity-80' : 'opacity-100'}`}>
+    <header className={`sticky top-0 z-[100] text-white bg-[#5f0404] transition-opacity duration-300 ${isScrolled ? 'opacity-80' : 'opacity-100'}`}>
       <nav aria-label="Global" className="mx-auto p-2 flex max-w-9xl items-center justify-between">
         <LogoIglesia />
         <div className="flex lg:hidden">
@@ -55,9 +55,9 @@ export default function Header() {
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
         <div className="fixed inset-0 z-10" />
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white/90 sm:max-w-sm">
-          <div className="flex items-center justify-between bg-red-600 px-6 py-6">
+          <div className="flex items-center justify-between bg-[#ac0505] px-6 py-6">
             <a href="#" className="-m-1.5 p-1.5">
-              <span className="text-white text-xl sm:text-red-600">Iglesia de Urquiza</span>
+              <span className="text-white text-xl sm:text-[#ac0505]">Iglesia de Urquiza</span>
               <img
                 alt=""
                 src={logoIglesiaWhite}
