@@ -20,7 +20,7 @@ const Carousel = ({ slides }) => {
   }, [currentIndex]);
 
   return (
-    <div className="max-w-[95%] md:max-w-[1400px] h-[500px] md:h-[780px] w-full mx-auto py-8 md:py-16 px-2 md:px-4 relative group">
+    <div className="max-w-[95%] md:max-w-[1400px] h-[500px] md:h-[780px] w-full mx-auto py-8 md:py-16 px-2 md:px-4 drop-shadow-[0px_0px_8px_#9e4343] relative group">
       <SlideCard slide={slides[currentIndex]} />
       <ArrowButton direction="left" onClick={prevSlide} />
       <ArrowButton direction="right" onClick={nextSlide} />

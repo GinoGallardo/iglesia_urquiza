@@ -33,7 +33,8 @@ export default function Header() {
       <nav aria-label="Global" className="mx-auto p-2 flex max-w-9xl items-center justify-between">
         <LogoIglesia />
         <div className="flex lg:hidden">
-          <button
+          {!mobileMenuOpen && (
+            <button
             type="button"
             onClick={() => setMobileMenuOpen(true)}
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
@@ -41,6 +42,7 @@ export default function Header() {
             <span className="sr-only">Open main menu</span>
             <Bars3Icon aria-hidden="true" className="size-10" />
           </button>
+          )}
         </div>
         <PopoverGroup className="hidden p-6 lg:flex lg:gap-x-12 lg:px-8">
           <Links />
@@ -50,14 +52,14 @@ export default function Header() {
         </div>
       </nav>
       <div className='flex justify-end pb-2 pr-2 lg:hidden'>
-        <Redes className={"size-6"}/>
+        <Redes className={"hidden md:flex size-6"}/>
       </div>
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
-        <div className="fixed inset-0 z-10" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white/90 sm:max-w-sm">
-          <div className="flex items-center justify-between bg-[#ac0505] px-6 py-6">
+        <div className="fixed inset-0" />
+        <DialogPanel className="fixed inset-y-0 right-0 z-[100] w-full overflow-y-auto bg-white/90 sm:max-w-sm">
+          <div className="flex items-center justify-between bg-[#5f0404] px-6 py-6">
             <a href="#" className="-m-1.5 p-1.5">
-              <span className="text-white text-xl sm:text-[#ac0505]">Iglesia de Urquiza</span>
+              <span className="text-white text-xl sm:text-[#5f0404]">Iglesia de Urquiza</span>
               <img
                 alt=""
                 src={logoIglesiaWhite}
@@ -67,7 +69,7 @@ export default function Header() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
-              className="-m-2.5 rounded-md p-2.5 text-white"
+              className="absolute top-6 right-6 z-20 p-2.5 text-white"
             >
               <span className="sr-only">Close menu</span>
               <XMarkIcon aria-hidden="true" className="size-10" />
@@ -80,7 +82,7 @@ export default function Header() {
               </div>
             </div>
           </div>
-          <div className='flex mx-6 mt-4 pt-2 border-t-2 border-t-red-600'>
+          <div className='flex mx-6 mt-4 pt-2 border-t-2 border-t-[#5f0404]'>
             <Redes className={"size-6"}/>
       </div>
         </DialogPanel>

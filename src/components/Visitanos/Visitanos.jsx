@@ -4,7 +4,7 @@ import FrenteIglesia from "/assets/iglesia-frente.png";
 
 function Visitanos() {
   return (
-    <section id="visitanos" className="relative flex flex-col bg-[#ac0505] gap-4 p-6 md:gap-y-10 md:py-10 lg:pt-28 lg:mt-16">
+    <section id="visitanos" className="relative flex flex-col bg-[#ac0404] gap-4 p-6 md:gap-y-10 md:py-10 lg:pt-28 lg:mt-16">
       <div className="flex flex-col items-center justify-center gap-y-6">
         <span className="subtitulo text-center text-white font-bold font-serif text-2xl md:text-3xl lg:text-4xl">
           Visitanos

@@ -1,20 +1,21 @@
 import PropTypes from "prop-types";
 
 const link = [
-  { name: "Inicio", href: "#inicio" },
-  { name: "Nosotros", href: "#nosotros" },
-  { name: "Visitanos", href: "#visitanos" },
-  { name: "Actividades", href: "#actividades" },
-  { name: "Oramos", href: "#oracion" }
+  { name: "Inicio", href: "inicio" },
+  { name: "Nosotros", href: "nosotros" },
+  { name: "Visitanos", href: "visitanos" },
+  { name: "Actividades", href: "actividades" },
+  { name: "Oramos", href: "oracion" }
 ]
 
 function Links({mobile = false, onClick}) {
   const handleClick = (e, sectionId) => {
-    e.preventDefaul()
+    e.preventDefault();
+
     const section = document.getElementById(sectionId);
 
     if(section) {
-      const offset = .1;
+      const offset = 80;
       const sectionTop = section.getBoundingClientRect().top + window.scrollY - offset;
 
       window.scrollTo({
@@ -23,7 +24,7 @@ function Links({mobile = false, onClick}) {
       });
 
       if (mobile && onClick) {
-        onClick()
+        setTimeout(onClick, 200)
       }
     }
   }
