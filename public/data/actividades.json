@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Escuela Bíblica",
+    "logo": "/assets/logo-escuelita.jpg",
+    "description": [
+      "Juegos",
+      "Enseñanzas",
+      "Alabanza"
+    ],
+    "img": "/assets/escuela-biblica.jpg",
+    "instagram": "https://www.instagram.com/escuelabiblicaurquiza/",
+    "facebook": "https://www.facebook.com/search/top?q=escuela%20b%C3%ADblica%20urquiza"
+  },
+  {
+    "name": "Adolescentes",
+    "logo": "/assets/logo-adolescentes.jpg",
+    "img": "/assets/adolescente.jpg",
+    "description": [
+      "Juegos",
+      "Enseñanzas",
+      "Alabanza",
+      "Salidas al Cine",
+      "Visitamos Iglesias"
+    ],
+    "instagram": "https://www.instagram.com/adolescentesroosevelt/",
+    "facebook": "https://www.facebook.com/adolescentesroosevelt.ice"
+  },
+  {
+    "name": "Jovenes",
+    "logo": "/assets/logo-jovenes.jpg",
+    "img": "/assets/jovenes.jpg",
+    "description": [
+      "Juegos",
+      "Enseñanzas",
+      "Alabanza",
+      "Salidas",
+      "Visitamos Iglesias"
+    ],
+    "instagram": "https://www.instagram.com/jovenesurquiza/",
+    "facebook": "https://www.facebook.com/search/top?q=j%C3%B3venes%20urquiza"
+  },
+  {
+    "name": "10:30 hrs",
+    "logo": "/assets/logo-iglesia.jpg",
+    "img": "/assets/cena-del-señor.jpg",
+    "youtube": "https://www.youtube.com/watch?v=7KRc7EHFRkY&list=PLL9X2rVJzWBck4cAtONQrIbu20Ca5s8sY"
+  },
+  {
+    "name": "Enseñanza",
+    "logo": "/assets/logo-iglesia.jpg",
+    "img": "/assets/jueves.jpg",
+    "youtube": "https://www.youtube.com/watch?v=A-2ZhiWQ6sw&list=PLL9X2rVJzWBfNQff6e1sT5GG9e999APeD"
+  },
+  {
+    "name": "Cena del Señor",
+    "logo": "/assets/logo-iglesia.jpg",
+    "img": "/assets/cena-del-señor.jpg",
+    "youtube": "https://www.youtube.com/watch?v=7KRc7EHFRkY&list=PLL9X2rVJzWBck4cAtONQrIbu20Ca5s8sY"
+  },
+  {
+    "name": "Reunión de Oración",
+    "logo": "/assets/logo-iglesia.jpg",
+    "img": "/assets/reunion-oracion.jpg"
+  }
+]

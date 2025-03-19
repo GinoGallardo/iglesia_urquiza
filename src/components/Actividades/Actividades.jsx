@@ -1,55 +1,106 @@
-import Carousel from "./Carousel";
-
-const slides = [
-  {
-    name: "Escuela Bíblica",
-    img: "/assets/escuela-biblica.jpg",
-    instagram: "https://www.instagram.com/escuelabiblicaurquiza/",
-    facebook: "https://www.facebook.com/search/top?q=escuela%20b%C3%ADblica%20urquiza",
-  },
-  {
-    name: "Adolescentes",
-    img: "/assets/adolescente.jpg",
-    instagram: "https://www.instagram.com/adolescentesroosevelt/",
-    facebook: "https://www.facebook.com/adolescentesroosevelt.ice",
-  },
-  {
-    name: "Jovenes",
-    img: "/assets/jovenes.jpg",
-    instagram: "https://www.instagram.com/jovenesurquiza/",
-    facebook: "https://www.facebook.com/search/top?q=j%C3%B3venes%20urquiza",
-  },
-  {
-    name: "10:30 hrs",
-    img: "/assets/cena-del-señor.jpg",
-    youtube: "https://www.youtube.com/watch?v=7KRc7EHFRkY&list=PLL9X2rVJzWBck4cAtONQrIbu20Ca5s8sY",
-  },
-  {
-    name: "Jueves 20 hrs",
-    img: "/assets/jueves.jpg",
-    youtube: "https://www.youtube.com/watch?v=A-2ZhiWQ6sw&list=PLL9X2rVJzWBfNQff6e1sT5GG9e999APeD",
-  },
-  {
-    name: "Domingo 10:30 hrs",
-    img: "/assets/cena-del-señor.jpg",
-    youtube: "https://www.youtube.com/watch?v=7KRc7EHFRkY&list=PLL9X2rVJzWBck4cAtONQrIbu20Ca5s8sY",
-  },
-  {
-    name: "Reunión de Oración",
-    img: "/assets/reunion-oracion.jpg",
-  },
-];
+import { useState, useEffect } from "react";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import { CardCarrusel } from "./CardCarrusel";
 
 const Actividades = () => {
+  const [actividades, setActividades] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [slidesPerView, setSlidesPerView] = useState(1);
+
+  useEffect(() => {
+    const fetchActividades = async () => {
+      const response = await fetch('/public/data/actividades.json');
+      const data = await response.json();
+      setActividades(data);
+    };
+
+    fetchActividades();
+  }, []);
+
+  useEffect(() => {
+    const updateSlidesPerView = () => {
+      if (window.innerWidth >= 1024) {
+        setSlidesPerView(3);
+      } else if (window.innerWidth >= 768) {
+        setSlidesPerView(2);
+      } else {
+        setSlidesPerView(1);
+      }
+    };
+
+    updateSlidesPerView();
+    window.addEventListener("resize", updateSlidesPerView);
+    return () => window.removeEventListener("resize", updateSlidesPerView);
+  }, []);
+
+  const totalSlides = actividades.length;
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? totalSlides - slidesPerView : prevIndex - 1
+    );
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex >= totalSlides - slidesPerView ? 0 : prevIndex + 1
+    );
+  };
+
   return (
-    <section id="actividades" className="flex flex-col p-2 md:p-6 md:my-10 lg:pt-28 lg:mt-16">
-      <div className="flex flex-col items-center justify-center gap-4">
-        <h2 className="subtitulo text-center text-[#ac0404] font-bold font-serif text-2xl md:text-3xl lg:text-4xl">
-          Actividades de la Iglesia
-        </h2>
+    <div className="w-full mx-auto max-w-[1200px] p-2">
+      {/* Botones de navegación */}
+      <div className="flex justify-center gap-5 p-5">
+        <button
+          className="bg-[#146EB4] rounded-full p-2 text-white"
+          onClick={handlePrev}
+        >
+          <MdKeyboardArrowLeft size={30} />
+        </button>
+        <button
+          className="bg-[#146EB4] rounded-full p-2 text-white"
+          onClick={handleNext}
+        >
+          <MdKeyboardArrowRight size={30} />
+        </button>
       </div>
-      <Carousel slides={slides} />
-    </section>
+
+      {/* Carrusel */}
+      <div className="overflow-hidden relative w-full max-w-[70rem] mx-auto flex flex-col md:flex-row">
+  <div
+    className="flex transition-transform duration-500 ease-in-out gap-x-1"
+    style={{
+      transform: `translateX(-${
+        window.innerWidth >= 1280 // xl
+          ? currentIndex * 15
+          : window.innerWidth >= 1024 // lg
+          ? currentIndex * 19
+          : window.innerWidth >= 768 // md
+          ? currentIndex * 21
+          : currentIndex * 99
+      }%)`,
+    }}
+  >
+    {actividades.map((user, index) => (
+      <div
+        key={index}
+        className="flex-none w-full md:p-2 md:w-max"
+      >
+        <CardCarrusel
+          name={user.name}
+          logo={user.logo}
+          img={user.img}
+          description={user.description}
+          instagram={user.instagram}
+          facebook={user.facebook}
+          youtube={user.youtube}
+        />
+      </div>
+    ))}
+  </div>
+</div>
+
+    </div>
   );
 };
 

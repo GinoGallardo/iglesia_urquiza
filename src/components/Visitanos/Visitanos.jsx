@@ -1,6 +1,5 @@
 import { IoIosPlayCircle } from "react-icons/io";
 import Maps from "./Maps";
-import FrenteIglesia from "/assets/iglesia-frente.png";
 
 function Visitanos() {
   return (
@@ -14,9 +13,6 @@ function Visitanos() {
         </h3>
       </div>
       <div className="grid grid-cols-4 items-center gap-4 mx-auto md:w-3md lg:w-5xl lg:grid-cols-6">
-        <div className="col-span-4 sm:col-span-2 md:col-span-2 lg:col-span-2">
-            <img src={FrenteIglesia} alt="Frente de la Iglesia" />
-        </div>
         <div className="col-span-4 sm:col-span-2 lg:col-span-4">
           <span className="text-md text-white font-semibold md:text-2xl">Roosevelt 5537 - Villa Urquiza, CABA</span>
           <div className="flex flex-col">
