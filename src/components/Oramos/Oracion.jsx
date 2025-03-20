@@ -16,7 +16,7 @@ export default function Oracion() {
         href="https://api.whatsapp.com/send?phone=91121697373"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center md:gap-4 bg-[#5f0404] py-2 px-4 rounded-md cursor-pointer drop-shadow-[0px_0px_5px_#9e4343] hover:bg-[#9e4343] text-2xl font-semibold"
+        className="flex items-center justify-center md:gap-4 bg-[#5f0404] py-2 px-4 rounded-md cursor-pointer drop-shadow-[0px_0px_5px_#9e4343] hover:bg-[#9e4343] text-2xl font-semibold hover:scale-105"
       >
         <IoArrowForwardCircleOutline size={30}/>
         Charla con nosotros

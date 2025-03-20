@@ -9,11 +9,17 @@ const Actividades = () => {
 
   useEffect(() => {
     const fetchActividades = async () => {
-      const response = await fetch('/public/data/actividades.json');
-      const data = await response.json();
-      setActividades(data);
+      try {
+        const response = await fetch('/data/actividades.json');
+        if (!response.ok) throw new Error(`Error al obtener datos: ${response.status}`);
+        const data = await response.json();
+        console.log('Actividades:', data); // Verifica si los datos llegan
+        setActividades(data);
+      } catch (error) {
+        console.error('Error cargando actividades:', error);
+      }
     };
-
+  
     fetchActividades();
   }, []);
 

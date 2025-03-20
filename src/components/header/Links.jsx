@@ -35,7 +35,7 @@ function Links({mobile = false, onClick}) {
         <div key={`${item.name}-${index}`} className="flex">
           <a
             href={item.href}
-            className={`text-xl md:text-white font-semibold hover:underline `}
+            className={`text-xl md:text-white font-semibold hover:underline hover:scale-120`}
             onClick={(e) => handleClick(e, item.href)}
           >
             {item.name}

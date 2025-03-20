@@ -8,12 +8,12 @@ const redes = [
 ];
 
 function Redes({ className }) {
-  className = className || "size-6 text-white hover:text-red-500 transition-colors";
+  className = className || "size-6 text-white";
 
   return (
     <section className="flex gap-4">
       {redes.map(({ name, href, Icon }) => (
-        <a className="flex" key={name} href={href} target="_blank" rel="noopener noreferrer">
+        <a className="flex hover:scale-120" key={name} href={href} target="_blank" rel="noopener noreferrer">
           <Icon className={ className }/>
         </a>
       ))}

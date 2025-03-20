@@ -1,6 +1,6 @@
 import { useMemo } from "react";
-import PropTypes from "prop-types"; // Importa PropTypes
-import { Facebook, Instagram, Youtube } from "lucide-react";
+import PropTypes from "prop-types";
+import { FaSquareFacebook, FaInstagram , FaYoutube   } from "react-icons/fa6";
 
 export const CardCarrusel = ({ name, logo, img, description, instagram, facebook, youtube }) => {
   const initials = useMemo(
@@ -49,7 +49,7 @@ export const CardCarrusel = ({ name, logo, img, description, instagram, facebook
                 rel="noopener noreferrer"
                 className="text-[#E1306C] hover:opacity-80"
               >
-                <Instagram size={18} className="sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-900" />
+                <FaInstagram   size={22} className="sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-900 hover:scale-120" />
               </a>
             )}
             {facebook && (
@@ -57,9 +57,9 @@ export const CardCarrusel = ({ name, logo, img, description, instagram, facebook
                 href={facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#1877F2] hover:opacity-80"
+                className=" hover:opacity-80"
               >
-                <Facebook size={18} className="sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-900" />
+                <FaSquareFacebook size={22} className="sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-900 hover:scale-120" />
               </a>
             )}
             {youtube && (
@@ -67,9 +67,9 @@ export const CardCarrusel = ({ name, logo, img, description, instagram, facebook
                 href={youtube}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#FF0000] hover:opacity-80"
+                className="hover:opacity-80"
               >
-                <Youtube size={18} className="sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-900" />
+                <FaYoutube  size={22} className="sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-900 hover:scale-120" />
               </a>
             )}
           </div>
