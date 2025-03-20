@@ -3,8 +3,8 @@ import Maps from "./Maps";
 
 function Visitanos() {
   return (
-    <section id="visitanos" className="relative flex flex-col bg-[#ac0404] gap-4 p-6 md:gap-y-10 md:py-10 lg:pt-28 lg:mt-16">
-      <div className="flex flex-col items-center justify-center gap-y-6">
+    <section id="visitanos" className="relative flex flex-col items-center justify-center bg-[#ac0404] gap-4 p-6 md:gap-y-10 md:py-10 lg:pt-28 lg:mt-16">
+      <div className="w-full flex flex-col gap-y-6">
         <span className="subtitulo text-center text-white font-bold font-serif text-2xl md:text-3xl lg:text-4xl">
           Visitanos
         </span>
@@ -12,8 +12,8 @@ function Visitanos() {
           Sumate a nuestras reuniones
         </h3>
       </div>
-      <div className="grid grid-cols-4 items-center gap-4 mx-auto md:w-3md lg:w-5xl lg:grid-cols-6">
-        <div className="col-span-4 sm:col-span-2 lg:col-span-4">
+      <div className="grid gap-4 mx-auto md:w-3md lg:w-5xl justify-center">
+        <div className="sm:col-span-2 lg:col-span-4 max-w-xl">
           <span className="text-md text-white font-semibold md:text-2xl">Roosevelt 5537 - Villa Urquiza, CABA</span>
           <div className="flex flex-col">
             <span className="flex items-center text-white text-md font-semibold md:text-xl p-2 gap-x-2">
@@ -21,13 +21,13 @@ function Visitanos() {
               Juéves 20 Hs
             </span>
             <span className="flex items-center text-white font-semibold text-md md:text-xl p-2 gap-x-2">
-              <IoIosPlayCircle size={30}  />
+              <IoIosPlayCircle size={30} />
               Domingo 10:30 hs
             </span>
           </div>
-            <div className="relative z-0">
-            <Maps />  
-            </div>
+          <div className="relative z-0">
+            <Maps />
+          </div>
         </div>
       </div>
     </section>
