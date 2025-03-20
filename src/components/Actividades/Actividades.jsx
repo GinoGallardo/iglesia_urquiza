@@ -48,7 +48,7 @@ const Actividades = () => {
   };
 
   return (
-    <div className="w-full mx-auto max-w-[1200px] p-2">
+    <div id="actividades" className="w-full mx-auto max-w-[1200px] p-2">
       {/* Botones de navegación */}
       <div className="flex justify-center gap-5 p-5">
         <button
@@ -67,38 +67,37 @@ const Actividades = () => {
 
       {/* Carrusel */}
       <div className="overflow-hidden relative w-full max-w-[70rem] mx-auto flex flex-col md:flex-row">
-  <div
-    className="flex transition-transform duration-500 ease-in-out gap-x-1"
-    style={{
-      transform: `translateX(-${
-        window.innerWidth >= 1280 // xl
-          ? currentIndex * 15
-          : window.innerWidth >= 1024 // lg
-          ? currentIndex * 19
-          : window.innerWidth >= 768 // md
-          ? currentIndex * 21
-          : currentIndex * 99
-      }%)`,
-    }}
-  >
-    {actividades.map((user, index) => (
-      <div
-        key={index}
-        className="flex-none w-full md:p-2 md:w-max"
-      >
-        <CardCarrusel
-          name={user.name}
-          logo={user.logo}
-          img={user.img}
-          description={user.description}
-          instagram={user.instagram}
-          facebook={user.facebook}
-          youtube={user.youtube}
-        />
+        <div
+          className="flex transition-transform duration-500 ease-in-out gap-x-1"
+          style={{
+            transform: `translateX(-${window.innerWidth >= 1280 // xl
+                ? currentIndex * 15
+                : window.innerWidth >= 1024 // lg
+                  ? currentIndex * 19
+                  : window.innerWidth >= 768 // md
+                    ? currentIndex * 21
+                    : currentIndex * 99
+              }%)`,
+          }}
+        >
+          {actividades.map((user, index) => (
+            <div
+              key={index}
+              className="flex-none w-full md:p-2 md:w-max"
+            >
+              <CardCarrusel
+                name={user.name}
+                logo={user.logo}
+                img={user.img}
+                description={user.description}
+                instagram={user.instagram}
+                facebook={user.facebook}
+                youtube={user.youtube}
+              />
+            </div>
+          ))}
+        </div>
       </div>
-    ))}
-  </div>
-</div>
 
     </div>
   );

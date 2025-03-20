@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import PropTypes from "prop-types"; // Importa PropTypes
 import { Facebook, Instagram, Youtube } from "lucide-react";
 
-export const CardCarrusel = ({ name, logo,  img, description, instagram, facebook, youtube }) => {
+export const CardCarrusel = ({ name, logo, img, description, instagram, facebook, youtube }) => {
   const initials = useMemo(
     () =>
       name
@@ -21,7 +21,7 @@ export const CardCarrusel = ({ name, logo,  img, description, instagram, faceboo
       {/* Header */}
       <div className="flex items-center p-2 bg-[#ac0404] rounded-2xl md:p-1 bg-opacity-60">
         <div className="flex justify-center items-center">
-          {/* Imagen de perfil o iniciales */}
+          {/* Imagen de ministerio o iniciales */}
           {img ? (
             <div className="relative w-16 h-16 sm:w-14 sm:h-14 md:w-16 md:h-16">
               <img
@@ -78,11 +78,11 @@ export const CardCarrusel = ({ name, logo,  img, description, instagram, faceboo
 
       {/* Body */}
       <div className="flex-1 mt-4 flex flex-col gap-4">
-          {description?.map((item, index) =>(
-              <p key={index} className="flex w-full mx-auto justify-center items-center bg-black opacity-70 rounded-2xl  text-[2rem] font-medium text-white ">
-              {item}
-            </p>
-          ))}
+        {description?.map((item, index) => (
+          <p key={index} className="flex w-full mx-auto justify-center items-center bg-black opacity-70 rounded-2xl  text-[2rem] font-medium text-white ">
+            {item}
+          </p>
+        ))}
       </div>
 
       {/* Footer */}
@@ -93,7 +93,7 @@ export const CardCarrusel = ({ name, logo,  img, description, instagram, faceboo
 // Validación de props
 CardCarrusel.propTypes = {
   name: PropTypes.string.isRequired,
-  logo: PropTypes.string, 
+  logo: PropTypes.string,
   img: PropTypes.string,
   description: PropTypes.string,
   instagram: PropTypes.string,
