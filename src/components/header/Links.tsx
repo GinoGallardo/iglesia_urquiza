@@ -42,7 +42,11 @@ function Links({ mobile = false, onClick }: LinksProps) {
         <div key={item.href} className="flex">
           <a
             href={`#${item.href}`}
-            className="text-xl font-semibold hover:underline hover:scale-120 md:text-white"
+            className={
+              mobile
+                ? "font-sans text-lg font-medium text-ink hover:text-brand"
+                : "font-sans text-sm font-medium tracking-wide text-white/90 transition hover:text-white"
+            }
             onClick={(e) => handleClick(e, item.href)}
           >
             {item.name}

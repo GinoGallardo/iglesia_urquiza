@@ -6,7 +6,7 @@ import { env } from "../../lib/env";
 const DEFAULT_DESCRIPTION =
   "Iglesia Cristiana de Villa Urquiza. Sumate a nuestras reuniones en Roosevelt 5537, CABA. Domingo 10:30 hs y Jueves 20 hs.";
 
-const OG_IMAGE = `${env.siteUrl}/assets/portada-web.jpg`;
+const OG_IMAGE = `${env.siteUrl}/assets/portada-web-hero.jpg`;
 
 export default function Seo() {
   const { i18n } = useTranslation();

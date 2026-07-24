@@ -1,13 +1,58 @@
-@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Permanent+Marker&family=Quintessential&display=swap');
-
-
-@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Quintessential&display=swap");
 @import "tailwindcss";
 
-@tailwind utilities;
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-accent: "Quintessential", serif;
+  --color-brand: #5f0404;
+  --color-brand-soft: #ac0404;
+  --color-brand-muted: #9e4343;
+  --color-ink: #1a1a1a;
+  --color-muted: #5c5c5c;
+  --color-surface: #f7f5f3;
+  --color-surface-elevated: #ffffff;
+}
 
-.subtitulo{
-  font-family: "Permanent Marker", serif;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  a,
+  li,
+  button {
+    font-family: inherit;
+  }
+}
+
+/* Solo acentos / títulos decorativos (ej. "Oramos por Vos") */
+.subtitulo,
+.font-accent {
+  font-family: var(--font-accent), serif;
   font-weight: 400;
   font-style: normal;
+  letter-spacing: 0.01em;
+}
+
+.section-shell {
+  @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+}
+
+.section-space {
+  @apply py-16 md:py-24 lg:py-28;
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { CardCarrusel } from "./CardCarrusel";
+import Button from "../ui/Button";
 import type { Actividad } from "../../types";
 
 function getTranslatePercent(index: number): number {
@@ -68,42 +69,56 @@ const Actividades = () => {
   return (
     <section
       id="actividades"
-      className="mx-auto w-full max-w-[1200px] p-2"
+      className="section-space bg-white"
       aria-roledescription="carrusel"
       aria-label="Actividades y ministerios"
     >
-      <div className="flex justify-center gap-5 p-5">
-        <button
-          type="button"
-          className="rounded-full bg-[#146EB4] p-2 text-white"
-          onClick={handlePrev}
-          aria-label="Actividad anterior"
-        >
-          <MdKeyboardArrowLeft size={30} aria-hidden="true" />
-        </button>
-        <button
-          type="button"
-          className="rounded-full bg-[#146EB4] p-2 text-white"
-          onClick={handleNext}
-          aria-label="Siguiente actividad"
-        >
-          <MdKeyboardArrowRight size={30} aria-hidden="true" />
-        </button>
-      </div>
-
-      <div className="relative mx-auto flex w-full max-w-[70rem] flex-col overflow-hidden md:flex-row">
-        <div
-          className="flex gap-x-1 transition-transform duration-500 ease-in-out"
-          style={{ transform: `translateX(-${translatePercent}%)` }}
-        >
-          {actividades.map((actividad) => (
-            <div
-              key={`${actividad.name}-${actividad.img}`}
-              className="w-full flex-none md:w-max md:p-2"
+      <div className="section-shell">
+        <div className="mb-8 flex flex-col items-start justify-between gap-4 md:mb-12 md:flex-row md:items-end">
+          <div>
+            <p className="subtitulo text-2xl text-brand md:text-3xl">
+              Actividades
+            </p>
+            <h2 className="mt-2 font-sans text-3xl font-bold tracking-tight text-ink md:text-4xl">
+              Ministerios y reuniones
+            </h2>
+          </div>
+          <div className="flex gap-3">
+            <Button
+              variant="secondary"
+              size="sm"
+              onClick={handlePrev}
+              aria-label="Actividad anterior"
+              className="!rounded-full !px-3 !py-3 shadow-md"
             >
-              <CardCarrusel {...actividad} />
-            </div>
-          ))}
+              <MdKeyboardArrowLeft size={28} aria-hidden="true" />
+            </Button>
+            <Button
+              variant="primary"
+              size="sm"
+              onClick={handleNext}
+              aria-label="Siguiente actividad"
+              className="!rounded-full !px-3 !py-3 shadow-md"
+            >
+              <MdKeyboardArrowRight size={28} aria-hidden="true" />
+            </Button>
+          </div>
+        </div>
+
+        <div className="relative mx-auto flex w-full max-w-[70rem] overflow-hidden">
+          <div
+            className="flex gap-x-3 transition-transform duration-500 ease-in-out"
+            style={{ transform: `translateX(-${translatePercent}%)` }}
+          >
+            {actividades.map((actividad) => (
+              <div
+                key={`${actividad.name}-${actividad.img}`}
+                className="w-full flex-none md:w-max md:p-1"
+              >
+                <CardCarrusel {...actividad} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

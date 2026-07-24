@@ -27,7 +27,7 @@ function Redes({ className }: RedesProps) {
   const iconClassName = className ?? "size-6 text-white";
 
   return (
-    <section className="flex gap-4" aria-label="Redes sociales">
+    <div className="flex gap-4" role="group" aria-label="Redes sociales">
       {redes.map(({ name, href, Icon }) => (
         <a
           className="flex hover:scale-120"
@@ -40,7 +40,7 @@ function Redes({ className }: RedesProps) {
           <Icon className={iconClassName} />
         </a>
       ))}
-    </section>
+    </div>
   );
 }
 

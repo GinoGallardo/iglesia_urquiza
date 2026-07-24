@@ -21,13 +21,13 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-[100] bg-[#5f0404] text-white transition-opacity duration-300 ${
-        isScrolled ? "opacity-90" : "opacity-100"
+      className={`sticky top-0 z-[100] border-b border-white/10 bg-brand text-white transition-shadow duration-300 ${
+        isScrolled ? "shadow-md" : "shadow-none"
       }`}
     >
       <nav
         aria-label="Navegación principal"
-        className="mx-auto flex max-w-9xl items-center justify-between p-2"
+        className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
       >
         <LogoIglesia />
         <div className="flex lg:hidden">
@@ -44,15 +44,15 @@ export default function Header() {
             </button>
           )}
         </div>
-        <PopoverGroup className="hidden p-6 lg:flex lg:gap-x-12 lg:px-8">
+        <PopoverGroup className="hidden items-center gap-8 lg:flex">
           <Links />
         </PopoverGroup>
-        <div className="hidden lg:mx-10 lg:flex lg:border-l-2 lg:pl-10">
-          <Redes className="size-6" />
+        <div className="hidden border-l border-white/25 pl-8 lg:flex">
+          <Redes className="size-5" />
         </div>
       </nav>
-      <div className="flex justify-end pb-2 pr-2 lg:hidden">
-        <Redes className="hidden size-6 md:flex" />
+      <div className="flex justify-end px-4 pb-2 lg:hidden">
+        <Redes className="hidden size-5 md:flex" />
       </div>
       <Dialog
         open={mobileMenuOpen}
@@ -64,9 +64,9 @@ export default function Header() {
           id="mobile-menu"
           className="fixed inset-y-0 right-0 z-[100] w-full overflow-y-auto bg-white/90 sm:max-w-sm"
         >
-          <div className="flex items-center justify-between bg-[#5f0404] px-6 py-6">
+          <div className="flex items-center justify-between bg-brand px-6 py-5">
             <a href="#inicio" className="-m-1.5 p-1.5">
-              <span className="text-xl text-white sm:text-[#5f0404]">
+              <span className="font-sans text-lg font-semibold text-white">
                 Iglesia de Urquiza
               </span>
               <img
@@ -93,8 +93,8 @@ export default function Header() {
               </div>
             </div>
           </div>
-          <div className="mx-6 mt-4 flex border-t-2 border-t-[#5f0404] pt-2">
-            <Redes className="size-6 text-[#5f0404]" />
+          <div className="mx-6 mt-4 flex border-t border-brand/20 pt-4">
+            <Redes className="size-6 text-brand" />
           </div>
         </DialogPanel>
       </Dialog>

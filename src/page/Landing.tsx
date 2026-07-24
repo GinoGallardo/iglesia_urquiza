@@ -5,6 +5,7 @@ import Home from "../components/Inicio/Home";
 import Nosotros from "../components/Nosotros/Nosotros";
 import Oracion from "../components/Oramos/Oracion";
 import ButtonWhatsApp from "../components/WhatsApp/ButtonWhatsApp";
+import DevocionalHoy from "../components/Devocional/DevocionalHoy";
 
 const Visitanos = lazy(() => import("../components/Visitanos/Visitanos"));
 const Actividades = lazy(() => import("../components/Actividades/Actividades"));
@@ -12,7 +13,7 @@ const Actividades = lazy(() => import("../components/Actividades/Actividades"));
 function SectionFallback() {
   return (
     <div
-      className="flex min-h-48 items-center justify-center text-[#5f0404]"
+      className="flex min-h-48 items-center justify-center text-brand"
       role="status"
       aria-live="polite"
     >
@@ -26,6 +27,7 @@ function Landing() {
     <>
       <Header />
       <Home />
+      <DevocionalHoy />
       <Nosotros />
       <Suspense fallback={<SectionFallback />}>
         <Visitanos />

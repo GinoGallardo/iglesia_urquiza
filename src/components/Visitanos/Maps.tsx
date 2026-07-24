@@ -21,7 +21,8 @@ function Maps() {
       center={position}
       zoom={env.mapZoom}
       style={{
-        height: "300px",
+        height: "100%",
+        minHeight: "320px",
         width: "100%",
         position: "relative",
         zIndex: "0",

@@ -5,32 +5,57 @@ function Visitanos() {
   return (
     <section
       id="visitanos"
-      className="relative flex flex-col items-center justify-center gap-4 bg-[#ac0404] p-6 md:gap-y-10 md:py-10 lg:mt-16 lg:pt-28"
+      className="section-space bg-surface"
+      aria-labelledby="visitanos-title"
     >
-      <div className="flex w-full flex-col gap-y-6">
-        <span className="subtitulo text-center font-serif text-2xl font-bold text-white md:text-3xl lg:text-4xl">
-          Visitanos
-        </span>
-        <h3 className="text-center font-serif text-2xl font-extrabold md:text-4xl lg:text-6xl">
-          Sumate a nuestras reuniones
-        </h3>
-      </div>
-      <div className="mx-auto grid justify-center gap-4 lg:w-5xl">
-        <div className="max-w-xl sm:col-span-2 lg:col-span-4">
-          <span className="text-md font-semibold text-white md:text-2xl">
-            Roosevelt 5537 - Villa Urquiza, CABA
-          </span>
-          <div className="flex flex-col">
-            <span className="text-md flex items-center gap-x-2 p-2 font-semibold text-white md:text-xl">
-              <IoIosPlayCircle size={30} aria-hidden="true" />
-              Juéves 20 Hs
-            </span>
-            <span className="text-md flex items-center gap-x-2 p-2 font-semibold text-white md:text-xl">
-              <IoIosPlayCircle size={30} aria-hidden="true" />
-              Domingo 10:30 hs
-            </span>
-          </div>
-          <div className="relative z-0">
+      <div className="section-shell">
+        <div className="mb-10 max-w-2xl md:mb-14">
+          <p className="subtitulo text-brand text-2xl md:text-3xl">Visitanos</p>
+          <h2
+            id="visitanos-title"
+            className="mt-2 font-sans text-3xl font-bold tracking-tight text-ink md:text-4xl lg:text-5xl"
+          >
+            Sumate a nuestras reuniones
+          </h2>
+          <p className="mt-3 text-base text-muted md:text-lg">
+            Te esperamos con los brazos abiertos. Traé tu familia y compartí un
+            momento de fe y comunidad.
+          </p>
+        </div>
+
+        <div className="grid items-stretch gap-6 lg:grid-cols-2 lg:gap-8">
+          <article className="flex flex-col justify-center rounded-2xl border border-black/5 bg-surface-elevated p-6 shadow-sm md:p-8 lg:p-10">
+            <h3 className="font-sans text-lg font-semibold text-brand md:text-xl">
+              Dirección
+            </h3>
+            <p className="mt-2 font-sans text-base text-ink md:text-lg">
+              Roosevelt 5537 — Villa Urquiza, CABA
+            </p>
+
+            <h3 className="mt-8 font-sans text-lg font-semibold text-brand md:text-xl">
+              Horarios
+            </h3>
+            <ul className="mt-3 space-y-3">
+              <li className="flex items-center gap-3 font-sans text-base text-ink md:text-lg">
+                <IoIosPlayCircle
+                  size={28}
+                  className="shrink-0 text-brand"
+                  aria-hidden="true"
+                />
+                Jueves 20:00 hs
+              </li>
+              <li className="flex items-center gap-3 font-sans text-base text-ink md:text-lg">
+                <IoIosPlayCircle
+                  size={28}
+                  className="shrink-0 text-brand"
+                  aria-hidden="true"
+                />
+                Domingo 10:30 hs
+              </li>
+            </ul>
+          </article>
+
+          <div className="min-h-[320px] overflow-hidden rounded-2xl border border-black/5 bg-surface-elevated shadow-sm lg:min-h-[380px]">
             <Maps />
           </div>
         </div>
