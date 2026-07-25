@@ -1,16 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Quintessential&display=swap");
 @import "tailwindcss";
 
+/* Habilita el modo oscuro por clase (.dark en <html>) en Tailwind 4 CSS-first */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-accent: "Quintessential", serif;
   --color-brand: #5f0404;
   --color-brand-soft: #ac0404;
   --color-brand-muted: #9e4343;
+  /* Acento de marca legible sobre superficies oscuras */
+  --color-brand-light: #f0a8a8;
   --color-ink: #1a1a1a;
   --color-muted: #5c5c5c;
   --color-surface: #f7f5f3;
   --color-surface-elevated: #ffffff;
+}
+
+/*
+ * Modo oscuro: redefinimos los tokens semánticos para que todo el sitio
+ * cambie a través de las utilidades existentes (bg-surface, text-ink, etc.).
+ * Mantenemos la marca #5f0404 como fondo (header/footer/botones) intacta.
+ */
+.dark {
+  --color-ink: #f4ebeb;
+  --color-muted: #c2acac;
+  --color-surface: #140505;
+  --color-surface-elevated: #1c1010;
 }
 
 @layer base {
@@ -23,6 +40,10 @@
     color: var(--color-ink);
     background-color: #ffffff;
     -webkit-font-smoothing: antialiased;
+  }
+
+  .dark body {
+    background-color: var(--color-surface);
   }
 
   h1,
@@ -55,4 +76,151 @@
 
 .section-space {
   @apply py-16 md:py-24 lg:py-28;
+}
+
+/* Marquesinas estilo Prisma / Pulso */
+.marquee-content {
+  display: inline-flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.marquee-left {
+  animation: marquee-rtl 70s linear infinite;
+}
+
+.marquee-right {
+  animation: marquee-ltr 80s linear infinite;
+}
+
+@keyframes marquee-rtl {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-ltr {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-left,
+  .marquee-right {
+    animation: none;
+  }
+
+  .hero-enter,
+  .hero-enter-delay-1,
+  .hero-enter-delay-2,
+  .hero-enter-delay-3,
+  .hero-enter-delay-4,
+  .scroll-hint,
+  .sello-spin,
+  .hero-kenburns,
+  .reveal-base {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ——— Animaciones home (estilo Másvida) ——— */
+.reveal-base {
+  transition-property: opacity, transform;
+  transition-duration: 800ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-fade-left {
+  from {
+    opacity: 0;
+    transform: translateX(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes kenburns {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes scroll-hint-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
+@keyframes sello-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.hero-enter {
+  animation: hero-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-enter-delay-1 {
+  animation: hero-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+
+.hero-enter-delay-2 {
+  animation: hero-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.24s both;
+}
+
+.hero-enter-delay-3 {
+  animation: hero-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.36s both;
+}
+
+.hero-enter-delay-4 {
+  animation: hero-fade-left 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.28s both;
+}
+
+.hero-kenburns {
+  animation: kenburns 12s ease-out both;
+}
+
+.scroll-hint {
+  animation: scroll-hint-bounce 2s ease-in-out infinite;
+}
+
+.sello-spin {
+  animation: sello-spin 28s linear infinite;
 }

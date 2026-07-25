@@ -19,7 +19,8 @@ interface CachedVerse {
   referencia: string;
 }
 
-const CACHE_KEY = "iglesia_urquiza_versiculo_del_dia";
+/** El sufijo de versión invalida caches de traducciones anteriores. */
+export const CACHE_KEY = "iglesia_urquiza_versiculo_del_dia_rv1960";
 
 function todayKey(date = new Date()): string {
   return date.toISOString().slice(0, 10);
@@ -30,6 +31,15 @@ export function getDayOfYear(date = new Date()): number {
   const start = Date.UTC(date.getFullYear(), 0, 0);
   const now = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate());
   return Math.floor((now - start) / 86_400_000);
+}
+
+/** Limpia la caché de la traducción anterior guardada por versiones previas. */
+function purgarCacheLegado(): void {
+  try {
+    localStorage.removeItem("iglesia_urquiza_versiculo_del_dia");
+  } catch {
+    // ignore private mode
+  }
 }
 
 function readCache(): CachedVerse | null {
@@ -54,21 +64,32 @@ function writeCache(value: Omit<CachedVerse, "date">): void {
   }
 }
 
+/** La API devuelve saltos de línea poéticos como <br> y espacios dobles. */
+function normalizarTexto(raw: string): string {
+  return raw
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/\s+/g, " ")
+    .replace(/\s+([,.;:!?])/g, "$1")
+    .trim();
+}
+
 async function fetchVerseText(
-  book: string,
+  bookId: number,
   chapter: number,
   verse: number
 ): Promise<string> {
-  const url = `${BIBLE_API_BASE}/${BIBLE_API_VERSION}/books/${book}/chapters/${chapter}/verses/${verse}.json`;
+  const url = `${BIBLE_API_BASE}/${BIBLE_API_VERSION}/${bookId}/${chapter}/${verse}/`;
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(`API ${response.status}`);
   }
   const data = (await response.json()) as { text?: string };
-  if (!data.text?.trim()) {
+  const texto = normalizarTexto(data.text ?? "");
+  if (!texto) {
     throw new Error("Empty verse text");
   }
-  return data.text.trim();
+  return texto;
 }
 
 export function useVersiculoDelDia(): VersiculoDelDia {
@@ -83,6 +104,7 @@ export function useVersiculoDelDia(): VersiculoDelDia {
     let cancelled = false;
 
     const run = async () => {
+      purgarCacheLegado();
       const cached = readCache();
       if (cached) {
         if (!cancelled) {
@@ -99,7 +121,7 @@ export function useVersiculoDelDia(): VersiculoDelDia {
 
       try {
         const apiTexto = await fetchVerseText(
-          ref.book,
+          ref.bookId,
           ref.chapter,
           ref.verse
         );

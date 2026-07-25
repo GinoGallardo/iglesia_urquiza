@@ -2,12 +2,12 @@ function Nosotros() {
   return (
     <section
       id="nosotros"
-      className="section-space bg-white"
+      className="section-space bg-surface-elevated"
       aria-labelledby="nosotros-title"
     >
       <div className="section-shell">
-        <p className="subtitulo text-center text-2xl text-brand md:text-3xl">
-          Sobre nosotros
+        <p className="subtitulo text-center text-2xl text-brand md:text-3xl dark:text-brand-light">
+          Quiénes somos
         </p>
         <h2
           id="nosotros-title"
@@ -45,7 +45,7 @@ function Nosotros() {
 
             <div className="mt-2 grid gap-6">
               <div>
-                <h4 className="font-sans text-lg font-semibold text-brand">
+                <h4 className="font-sans text-lg font-semibold text-brand dark:text-brand-light">
                   Misión
                 </h4>
                 <p className="mt-1 font-sans text-base leading-relaxed text-muted md:text-lg">
@@ -54,7 +54,7 @@ function Nosotros() {
                 </p>
               </div>
               <div>
-                <h4 className="font-sans text-lg font-semibold text-brand">
+                <h4 className="font-sans text-lg font-semibold text-brand dark:text-brand-light">
                   Visión
                 </h4>
                 <p className="mt-1 font-sans text-base leading-relaxed text-muted md:text-lg">
@@ -63,7 +63,7 @@ function Nosotros() {
                 </p>
               </div>
               <div>
-                <h4 className="font-sans text-lg font-semibold text-brand">
+                <h4 className="font-sans text-lg font-semibold text-brand dark:text-brand-light">
                   Objetivos
                 </h4>
                 <p className="mt-1 font-sans text-base leading-relaxed text-muted md:text-lg">

@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import { IoArrowForwardCircleOutline } from "react-icons/io5";
-import { whatsappUrl } from "../../lib/env";
 import Button from "../ui/Button";
+import { Reveal } from "../ui/Reveal";
 
 export default function Oracion() {
   return (
@@ -23,26 +24,40 @@ export default function Oracion() {
       </picture>
       <div className="absolute inset-0 bg-black/70" />
       <div className="section-shell relative z-10 flex flex-col items-center gap-5 text-center md:gap-6">
-        <h2 className="subtitulo text-3xl text-[#ffd6d6] md:text-4xl lg:text-5xl">
-          Oramos por Vos
-        </h2>
-        <p className="font-sans text-sm font-medium tracking-[0.18em] text-white/70 uppercase">
-          Mateo 18:20
-        </p>
-        <p className="max-w-3xl font-sans text-2xl font-semibold text-white md:text-3xl lg:text-4xl">
-          ¿Necesitas ayuda o querés que oremos por vos?
-        </p>
-        <Button
-          href={whatsappUrl("Hola, me gustaría que oren por mí.")}
-          target="_blank"
-          rel="noopener noreferrer"
-          variant="primary"
-          size="lg"
-          className="mt-2"
-        >
-          <IoArrowForwardCircleOutline size={28} aria-hidden="true" />
-          Charla con nosotros
-        </Button>
+        <Reveal from="up">
+          <h2 className="subtitulo text-3xl text-[#ffd6d6] md:text-4xl lg:text-5xl">
+            Oramos por Vos
+          </h2>
+        </Reveal>
+        <Reveal delayMs={80} from="up">
+          <p className="font-sans text-sm font-medium tracking-[0.18em] text-white/70 uppercase">
+            Mateo 18:20
+          </p>
+        </Reveal>
+        <Reveal delayMs={140} from="up">
+          <p className="max-w-3xl font-sans text-2xl font-semibold text-white md:text-3xl lg:text-4xl">
+            ¿Necesitas ayuda o querés que oremos por vos?
+          </p>
+        </Reveal>
+        <Reveal delayMs={220} from="scale">
+          <div className="flex flex-col items-center gap-4">
+            <Button
+              href="/actividades/oracion#pedir-oracion"
+              variant="primary"
+              size="lg"
+              className="mt-2"
+            >
+              <IoArrowForwardCircleOutline size={28} aria-hidden="true" />
+              Enviar petición
+            </Button>
+            <Link
+              to="/actividades/oracion"
+              className="text-sm font-medium text-white/80 underline-offset-4 hover:text-white hover:underline"
+            >
+              Conocer la reunión de oración →
+            </Link>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

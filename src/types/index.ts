@@ -15,7 +15,12 @@ export type ActividadesResponse = Actividad[];
 
 export interface NavLink {
   name: string;
-  href: string;
+  /** Ruta de página (ej: "/" o "/ubicaciones") */
+  to?: string;
+  /** Id de sección en la home (ej: "nosotros") */
+  section?: string;
+  /** Subítems del menú (misma página con anclas, u otras rutas) */
+  children?: NavLink[];
 }
 
 export interface SocialLink {

@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 import logoIglesiaWhite from "../../assets/logo-iglesia-sin-techo-transparente(blanco).png";
 
 function LogoIglesia() {
   return (
     <div className="flex lg:flex-1">
-      <a href="#inicio" className="-m-1.5 p-1.5">
+      <Link to="/" className="-m-1.5 p-1.5">
         <span className="text-xl">Iglesia de Urquiza</span>
         <img
           alt="Logo Iglesia de Urquiza"
@@ -12,7 +13,7 @@ function LogoIglesia() {
           width={40}
           height={40}
         />
-      </a>
+      </Link>
     </div>
   );
 }

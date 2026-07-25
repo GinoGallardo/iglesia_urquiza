@@ -69,14 +69,14 @@ const Actividades = () => {
   return (
     <section
       id="actividades"
-      className="section-space bg-white"
+      className="section-space bg-surface-elevated"
       aria-roledescription="carrusel"
       aria-label="Actividades y ministerios"
     >
       <div className="section-shell">
         <div className="mb-8 flex flex-col items-start justify-between gap-4 md:mb-12 md:flex-row md:items-end">
           <div>
-            <p className="subtitulo text-2xl text-brand md:text-3xl">
+            <p className="subtitulo text-2xl text-brand md:text-3xl dark:text-brand-light">
               Actividades
             </p>
             <h2 className="mt-2 font-sans text-3xl font-bold tracking-tight text-ink md:text-4xl">

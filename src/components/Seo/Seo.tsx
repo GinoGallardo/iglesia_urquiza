@@ -8,19 +8,29 @@ const DEFAULT_DESCRIPTION =
 
 const OG_IMAGE = `${env.siteUrl}/assets/portada-web-hero.jpg`;
 
-export default function Seo() {
+interface SeoProps {
+  title?: string;
+  description?: string;
+  path?: string;
+}
+
+export default function Seo({ title, description, path = "" }: SeoProps) {
   const { i18n } = useTranslation();
   const lang = i18n.language?.startsWith("en") ? "en" : "es";
 
-  const title =
-    lang === "en"
+  const resolvedTitle =
+    title ??
+    (lang === "en"
       ? "Iglesia de Urquiza | Christian Church in Villa Urquiza"
-      : "Iglesia de Urquiza | Iglesia Cristiana en Villa Urquiza";
+      : "Iglesia de Urquiza | Iglesia Cristiana en Villa Urquiza");
 
-  const description =
-    lang === "en"
+  const resolvedDescription =
+    description ??
+    (lang === "en"
       ? "Christian Church of Villa Urquiza. Join our gatherings at Roosevelt 5537, CABA."
-      : DEFAULT_DESCRIPTION;
+      : DEFAULT_DESCRIPTION);
+
+  const canonical = `${env.siteUrl}${path}`;
 
   useEffect(() => {
     document.documentElement.lang = lang;
@@ -29,21 +39,21 @@ export default function Seo() {
   return (
     <Helmet>
       <html lang={lang} />
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      <link rel="canonical" href={env.siteUrl} />
+      <title>{resolvedTitle}</title>
+      <meta name="description" content={resolvedDescription} />
+      <link rel="canonical" href={canonical} />
 
       <meta property="og:type" content="website" />
-      <meta property="og:url" content={env.siteUrl} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
+      <meta property="og:url" content={canonical} />
+      <meta property="og:title" content={resolvedTitle} />
+      <meta property="og:description" content={resolvedDescription} />
       <meta property="og:image" content={OG_IMAGE} />
       <meta property="og:locale" content={lang === "en" ? "en_US" : "es_AR"} />
       <meta property="og:site_name" content="Iglesia de Urquiza" />
 
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
+      <meta name="twitter:title" content={resolvedTitle} />
+      <meta name="twitter:description" content={resolvedDescription} />
       <meta name="twitter:image" content={OG_IMAGE} />
     </Helmet>
   );

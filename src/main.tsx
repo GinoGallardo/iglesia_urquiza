@@ -2,6 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { HelmetProvider } from "react-helmet-async";
 import App from "./App";
+import { ThemeProvider } from "./contexts/ThemeProvider";
 import "./i18n";
 import { initAnalytics } from "./lib/analytics";
 
@@ -16,7 +17,9 @@ initAnalytics();
 createRoot(rootElement).render(
   <StrictMode>
     <HelmetProvider>
-      <App />
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
     </HelmetProvider>
   </StrictMode>
 );

@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { renderHook, waitFor } from "@testing-library/react";
 import {
+  CACHE_KEY,
   getDayOfYear,
   useVersiculoDelDia,
 } from "./useVersiculoDelDia";
@@ -21,7 +22,10 @@ describe("useVersiculoDelDia", () => {
       "fetch",
       vi.fn().mockResolvedValue({
         ok: true,
-        json: async () => ({ verse: "16", text: "Texto de prueba desde API" }),
+        json: async () => ({
+          verse: 16,
+          text: "Texto de prueba<br>  desde API",
+        }),
       })
     );
   });
@@ -42,7 +46,7 @@ describe("useVersiculoDelDia", () => {
     expect(result.current.referencia.length).toBeGreaterThan(0);
     expect(fetch).toHaveBeenCalled();
 
-    const cached = localStorage.getItem("iglesia_urquiza_versiculo_del_dia");
+    const cached = localStorage.getItem(CACHE_KEY);
     expect(cached).toBeTruthy();
   });
 

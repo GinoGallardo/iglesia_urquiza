@@ -1,43 +1,19 @@
-import { lazy, Suspense } from "react";
-import Footer from "../components/Footer/Footer";
-import Header from "../components/header/Header";
-import Home from "../components/Inicio/Home";
-import Nosotros from "../components/Nosotros/Nosotros";
+import Hero from "../components/Inicio/Hero";
+import DestacadosSemana from "../components/Destacados/DestacadosSemana";
+import LugarConectar from "../components/Inicio/LugarConectar";
 import Oracion from "../components/Oramos/Oracion";
-import ButtonWhatsApp from "../components/WhatsApp/ButtonWhatsApp";
 import DevocionalHoy from "../components/Devocional/DevocionalHoy";
-
-const Visitanos = lazy(() => import("../components/Visitanos/Visitanos"));
-const Actividades = lazy(() => import("../components/Actividades/Actividades"));
-
-function SectionFallback() {
-  return (
-    <div
-      className="flex min-h-48 items-center justify-center text-brand"
-      role="status"
-      aria-live="polite"
-    >
-      Cargando…
-    </div>
-  );
-}
+import Seo from "../components/Seo/Seo";
 
 function Landing() {
   return (
     <>
-      <Header />
-      <Home />
+      <Seo />
+      <Hero />
+      <DestacadosSemana />
+      <LugarConectar />
       <DevocionalHoy />
-      <Nosotros />
-      <Suspense fallback={<SectionFallback />}>
-        <Visitanos />
-      </Suspense>
-      <Suspense fallback={<SectionFallback />}>
-        <Actividades />
-      </Suspense>
       <Oracion />
-      <ButtonWhatsApp />
-      <Footer />
     </>
   );
 }

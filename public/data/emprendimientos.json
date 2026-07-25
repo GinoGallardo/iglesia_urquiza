@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "nombre": "Dulce Hogar",
+    "hermano": "María Fernández",
+    "categoria": "Gastronomía",
+    "descripcion": "Tortas y postres artesanales por encargo para cumpleaños y eventos.",
+    "imagen": "/assets/portada-web.webp",
+    "whatsapp": "5491100000001",
+    "instagram": "dulcehogar.ba",
+    "web": ""
+  },
+  {
+    "id": 2,
+    "nombre": "Carlos Electricidad",
+    "hermano": "Carlos Gómez",
+    "categoria": "Servicios",
+    "descripcion": "Instalaciones y reparaciones eléctricas domiciliarias en Villa Urquiza y zona.",
+    "imagen": "/assets/iglesia-frente.webp",
+    "whatsapp": "5491100000002",
+    "instagram": "",
+    "web": ""
+  },
+  {
+    "id": 3,
+    "nombre": "Estudio Luz",
+    "hermano": "Ana y Pedro Ríos",
+    "categoria": "Diseño",
+    "descripcion": "Fotografía de familia, bautismos y casamientos.",
+    "imagen": "/assets/reunion-oracion.webp",
+    "whatsapp": "5491100000003",
+    "instagram": "estudioluz.foto",
+    "web": "https://estudioluz.com"
+  },
+  {
+    "id": 4,
+    "nombre": "Ropa Bendición",
+    "hermano": "Lucía Torres",
+    "categoria": "Indumentaria",
+    "descripcion": "Venta de ropa para toda la familia, precios accesibles y cuotas.",
+    "imagen": "/assets/ICE-urquiza.webp",
+    "whatsapp": "5491100000004",
+    "instagram": "ropabendicion",
+    "web": ""
+  }
+]

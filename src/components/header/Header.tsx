@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import logoIglesiaWhite from "../../assets/logo-iglesia-sin-techo-transparente(blanco).png";
 import { Dialog, DialogPanel, PopoverGroup } from "@headlessui/react";
@@ -5,6 +6,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import LogoIglesia from "./LogoIglesia";
 import Links from "./Links";
 import Redes from "../RedesSociales/Redes";
+import ThemeToggle from "../ThemeToggle/ThemeToggle";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -30,7 +32,8 @@ export default function Header() {
         className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
       >
         <LogoIglesia />
-        <div className="flex lg:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
+          <ThemeToggle />
           {!mobileMenuOpen && (
             <button
               type="button"
@@ -47,7 +50,8 @@ export default function Header() {
         <PopoverGroup className="hidden items-center gap-8 lg:flex">
           <Links />
         </PopoverGroup>
-        <div className="hidden border-l border-white/25 pl-8 lg:flex">
+        <div className="hidden items-center gap-4 border-l border-white/25 pl-8 lg:flex">
+          <ThemeToggle />
           <Redes className="size-5" />
         </div>
       </nav>
@@ -62,10 +66,10 @@ export default function Header() {
         <div className="fixed inset-0" aria-hidden="true" />
         <DialogPanel
           id="mobile-menu"
-          className="fixed inset-y-0 right-0 z-[100] w-full overflow-y-auto bg-white/90 sm:max-w-sm"
+          className="fixed inset-y-0 right-0 z-[100] w-full overflow-y-auto bg-surface-elevated/95 sm:max-w-sm"
         >
           <div className="flex items-center justify-between bg-brand px-6 py-5">
-            <a href="#inicio" className="-m-1.5 p-1.5">
+            <Link to="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
               <span className="font-sans text-lg font-semibold text-white">
                 Iglesia de Urquiza
               </span>
@@ -76,7 +80,7 @@ export default function Header() {
                 width={40}
                 height={40}
               />
-            </a>
+            </Link>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}

@@ -13,8 +13,8 @@
   },
   {
     "name": "Adolescentes",
-    "logo": "/assets/logo-adolescentes.jpg",
-    "img": "/assets/adolescente.jpg",
+    "logo": "/assets/transformado-transparente.png",
+    "img": "/assets/adolescente.webp",
     "description": [
       "Juegos",
       "Enseñanzas",
@@ -27,8 +27,8 @@
   },
   {
     "name": "Jovenes",
-    "logo": "/assets/logo-jovenes.jpg",
-    "img": "/assets/jovenes.jpg",
+    "logo": "/assets/pulso-transparente.png",
+    "img": "/assets/jovenes.webp",
     "description": [
       "Juegos",
       "Enseñanzas",
