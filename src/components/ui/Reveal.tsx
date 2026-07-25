@@ -11,6 +11,12 @@ const HIDDEN: Record<RevealFrom, string> = {
   none: "opacity-0",
 };
 
+function prefersReducedMotion(): boolean {
+  if (typeof window === "undefined") return false;
+  if (typeof window.matchMedia !== "function") return false;
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
 /** Reveal on scroll — estilo animaciones Másvida (fade + slide). */
 export function Reveal({
   children,
@@ -27,19 +33,13 @@ export function Reveal({
   once?: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(() => prefersReducedMotion());
 
   useEffect(() => {
+    if (prefersReducedMotion()) return;
+
     const el = ref.current;
     if (!el) return;
-
-    const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    if (reduceMotion) {
-      setVisible(true);
-      return;
-    }
 
     const obs = new IntersectionObserver(
       ([entry]) => {
