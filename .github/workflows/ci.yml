@@ -8,6 +8,14 @@ on:
 jobs:
   quality:
     runs-on: ubuntu-latest
+    env:
+      VITE_WHATSAPP_NUMBER: "91121697373"
+      VITE_MAP_LAT: "-34.5761956"
+      VITE_MAP_LNG: "-58.4920701"
+      VITE_MAP_ZOOM: "16"
+      VITE_SITE_URL: "https://iglesiaurquiza.com.ar"
+      VITE_GOOGLE_MAPS_URL: "https://www.google.com.ar/maps/place/Iglesia+Urquiza/@-34.5761956,-58.4920701,20.5z"
+      VITE_ANALYTICS_ENABLED: "false"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -15,11 +23,14 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: npm
 
       - name: Install
         run: npm ci
+
+      - name: Prepare env file
+        run: cp .env.example .env
 
       - name: Typecheck
         run: npm run typecheck
